@@ -12,7 +12,17 @@
                             <f:for each="<rkw:explode string='{settings.boxImages}' />" as="image" iteration="iterator">
                                 <div class="person person-teaser">
                                     <figure style="width: 100%;">
-                                        <f:image src="{image}" treatIdAsReference="1" alt="" width="304c" height="304c"  />
+                                        <f:if condition="{settings.contactLink}">
+                                            <f:then>
+                                                <f:link.typolink parameter="{settings.contactLink}">
+                                                    <f:image src="{image}" treatIdAsReference="1" alt="" width="304c" height="304c"  />
+                                                </f:link.typolink>
+                                            </f:then>
+                                            <f:else>
+                                                <f:image src="{image}" treatIdAsReference="1" alt="" width="304c" height="304c"  />
+                                            </f:else>
+                                        </f:if>
+
                                     </figure>
                                 </div>
                             </f:for>
