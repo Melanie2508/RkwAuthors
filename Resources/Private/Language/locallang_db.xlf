@@ -170,14 +170,18 @@
 			<trans-unit id="flexform.contactBox.linkText">
 				<source>Linktext</source>
 			</trans-unit>
+			<trans-unit id="flexform.contactBox.imagesInsteadAuthors">
+                <source>Images instead authors</source>
+            </trans-unit>
 			<trans-unit id="flexform.contactBox.author1">
 				<source>Author 1</source>
 			</trans-unit>
 			<trans-unit id="flexform.contactBox.author2">
 				<source>Author 2</source>
 			</trans-unit>
-
-
+            <trans-unit id="flexform.contactBox.images">
+				<source>Images</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

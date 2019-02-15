@@ -70,6 +70,13 @@
 							</config>
 						</TCEforms>
 					</settings.linkText>
+                    <settings.imagesInsteadAuthors>
+                        <label>LLL:EXT:rkw_authors/Resources/Private/Language/locallang_db.xlf:flexform.contactBox.imagesInsteadAuthors</label>
+                        <onChange>reload</onChange>
+                        <config>
+                            <type>check</type>
+                        </config>
+                    </settings.imagesInsteadAuthors>
 					<settings.author1>
 						<TCEforms>
 							<label>LLL:EXT:rkw_authors/Resources/Private/Language/locallang_db.xlf:flexform.contactBox.author1</label>
@@ -89,6 +96,7 @@
 									</numIndex>
 								</items>
 							</config>
+                            <displayCond>FIELD:settings.imagesInsteadAuthors:=:0</displayCond>
 						</TCEforms>
 					</settings.author1>
 					<settings.author2>
@@ -110,8 +118,45 @@
 									</numIndex>
 								</items>
 							</config>
+                            <displayCond>FIELD:settings.imagesInsteadAuthors:=:0</displayCond>
 						</TCEforms>
 					</settings.author2>
+
+                    <settings.boxImages>
+                        <TCEforms>
+                            <label>LLL:EXT:rkw_authors/Resources/Private/Language/locallang_db.xlf:flexform.contactBox.images</label>
+                            <config>
+                                <type>inline</type>
+                                <maxitems>1</maxitems>
+                                <foreign_table>sys_file_reference</foreign_table>
+                                <!--<foreign_field>uid_foreign</foreign_field>-->
+                                <foreign_table_field>tablenames</foreign_table_field>
+                                <foreign_label>uid_local</foreign_label>
+                                <foreign_sortby>sorting_foreign</foreign_sortby>
+                                <foreign_selector>uid_local</foreign_selector>
+                                <foreign_selector_fieldTcaOverride type="array">
+                                    <config>
+                                        <appearance>
+                                            <elementBrowserType>file</elementBrowserType>
+                                            <elementBrowserAllowed>jpg,png</elementBrowserAllowed>
+                                        </appearance>
+                                    </config>
+                                </foreign_selector_fieldTcaOverride>
+                                <foreign_match_fields type="array">
+                                    <fieldname>image</fieldname>
+                                </foreign_match_fields>
+                                <appearance type="array">
+                                    <newRecordLinkAddTitle>1</newRecordLinkAddTitle>
+                                    <headerThumbnail>
+                                        <field>uid_local</field>
+                                        <height>64</height>
+                                        <width>64</width>
+                                    </headerThumbnail>
+                                </appearance>
+                            </config>
+                            <displayCond>FIELD:settings.imagesInsteadAuthors:=:1</displayCond>
+                        </TCEforms>
+                    </settings.boxImages>
 
 				</el>
 			</ROOT>

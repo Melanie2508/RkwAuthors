@@ -220,6 +220,10 @@
 				<source>Linktext</source>
 				<target>Angezeigter Linktext (Optional: Falls nicht gesetzt, wird der Typolink-Linktext verwendet)</target>
 			</trans-unit>
+			<trans-unit id="flexform.contactBox.imagesInsteadAuthors">
+                <source>Images instead authors</source>
+                <target>Einfache Bilder statt Autoren einfügen</target>
+            </trans-unit>
 			<trans-unit id="flexform.contactBox.author1">
 				<source>Author 1</source>
 				<target>Autor 1</target>
@@ -228,7 +232,10 @@
 				<source>Author 2</source>
 				<target>Autor 2</target>
 			</trans-unit>
-
+            <trans-unit id="flexform.contactBox.images">
+				<source>Images</source>
+				<target>Bilder</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

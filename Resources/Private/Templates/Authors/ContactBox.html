@@ -1,20 +1,41 @@
+{namespace rkw=RKW\RkwAuthors\ViewHelpers}
 <f:layout name="Default" />
 
 <f:section name="main">
     <div class="article-bottom-box">
         <div class="project-details info-box">
-            <f:if condition="{author1}">
-                <div class="persons">
-                    <div class="person person-teaser">
-                        <f:render partial="Authors/Pages/BoxSmall" arguments="{author: author1}"/>
-                    </div>
-                    <f:if condition="{author2}">
-                        <div class="person person-teaser">
-                            <f:render partial="Authors/Pages/BoxSmall" arguments="{author: author2}"/>
+            <f:if condition="{settings.imagesInsteadAuthors}">
+                <f:then>
+                    <!-- just images -->
+                    <f:if condition="{settings.boxImages}">
+                        <div class="persons">
+                            <f:for each="<rkw:explode string='{settings.boxImages}' />" as="image" iteration="iterator">
+                                <div class="person person-teaser">
+                                    <figure style="width: 100%;">
+                                        <f:image src="{image}" treatIdAsReference="1" alt="" width="304c" height="304c"  />
+                                    </figure>
+                                </div>
+                            </f:for>
                         </div>
                     </f:if>
-                </div>
+                </f:then>
+                <f:else>
+                    <!-- authors -->
+                    <f:if condition="{author1}">
+                        <div class="persons">
+                            <div class="person person-teaser">
+                                <f:render partial="Authors/Pages/BoxSmall" arguments="{author: author1}"/>
+                            </div>
+                            <f:if condition="{author2}">
+                                <div class="person person-teaser">
+                                    <f:render partial="Authors/Pages/BoxSmall" arguments="{author: author2}"/>
+                                </div>
+                            </f:if>
+                        </div>
+                    </f:if>
+                </f:else>
             </f:if>
+
             <div class="box-content">
                 <f:if condition="{settings.headline}">
                     <p class="project-header">{settings.headline}</p>
